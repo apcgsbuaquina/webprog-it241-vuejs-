@@ -1,10 +1,8 @@
 <template>
-  <div id="app">
+  <div class="main-layout">
     <header>
       <div class="logo">
-        <router-link to="/">
-          Gian Ace Buaquiña <span class="subtitle">Student</span>
-        </router-link>
+        <a href="index.html">Gian Ace Buaquiña <span class="subtitle">Student</span></a>
       </div>
       <nav>
         <ul>
@@ -18,12 +16,12 @@
     <div class="hero">
       <div class="hero-content">
         <div class="hero-image">
-          <img src="@/firstsfc/public/profile-picture.jpg" alt="Gian Ace Buaquiña">
+          <img src="@/public/profile-picture.jpg" alt="Gian Ace Buaquiña">
         </div> 
         <div class="hero-text">
           <h1>Hello!</h1>
           <div class="text-container">
-            <p>Welcome to my personal space on the web. I'm a passionate individual with diverse interests ranging from technology to creative pursuits.</p>
+            <p>Welcome to my personal space on the web. I'm a passionate individual with diverse interests ranging from technology to creative pursuits. I believe in continuous learning and making meaningful connections. Explore my profile to learn more about what drives me and what I enjoy doing.</p>
           </div>
           <a href="#about" class="cta-button">Learn More</a>
         </div>
@@ -33,8 +31,13 @@
     <div class="page-content">
       <section id="about">
         <h2>About Me</h2>
-        <p class="about-text">{{ aboutText }}</p>
-        <router-link to="/about" class="cta-button" style="margin-top: 2rem;">See More</router-link>
+        <p class="about-text">
+          I'm an Information Technology student who enjoys building things with code and figuring out how to 
+          solve real-world problems. I like learning new tech, improving my skills, and seeing how ideas turn into something that 
+          actually works. When I'm not on my laptop, I'm usually out exploring new places, trying different food spots, or just 
+          looking for my next favorite meal. I'm easy to work with, adaptable, and I always put effort into what I do.
+        </p>
+        <a href="javascript:void(0)" class="cta-button" style="margin-top: 2rem;">See More</a>
       </section>
 
       <section id="hobbies">
@@ -43,7 +46,7 @@
           <div v-for="hobby in hobbies" :key="hobby.title" class="hobby-item">
             <h3>{{ hobby.title }}</h3>
             <p>{{ hobby.description }}</p>
-            <router-link :to="hobby.link" class="see-more cta-button cta-small">See more</router-link>
+            <a class="see-more cta-button cta-small" href="javascript:void(0)">See more</a>
           </div>
         </div>
       </section>
@@ -51,13 +54,22 @@
       <section id="contact">
         <h2>Get In Touch</h2>
         <div class="contact-info">
-          <div v-for="contact in contactInfo" :key="contact.type" class="contact-item">
+          <div class="contact-item">
             <div class="contact-icon">
-              <img :src="contact.icon" :alt="contact.type">
+              <img src="@/public/email.png" alt="Email">
             </div>
             <div>
-              <strong>{{ contact.type }}</strong><br>
-              {{ contact.value }}
+              <strong>Email</strong><br>
+              gianacebuaquina27@gmail.com
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <img src="@/public/linkedin.jpg" alt="LinkedIn">
+            </div>
+            <div>
+              <strong>LinkedIn</strong><br>
+              https://www.linkedin.com/in/gian-ace-buaqui%C3%B1a-67b9a0321/
             </div>
           </div>
         </div>
@@ -71,33 +83,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import './src/components/css/styles.css';
 
-// Using reactive data to make the component cleaner
-const aboutText = ref("I'm an Information Technology student who enjoys building things with code and figuring out how to solve real-world problems...");
-
-const hobbies = ref([
-  { title: 'Photography', description: 'Exploring and capturing each moment.', link: '/hobbies/photography' },
-  { title: 'Music', description: 'Discovering new artists and genres.', link: '/hobbies/music' },
-  { title: 'Movies', description: 'I luv films that make me cry.', link: '/hobbies/movies' },
-  { title: 'Video Games', description: 'Sometimes.', link: '/hobbies/videogames' },
-  { title: 'Doomscrolling', description: 'Or maybe watching dumb stuff on Youtube.', link: '/hobbies/doomscrolling' }
-]);
-
-const contactInfo = ref([
-  { type: 'Email', value: 'gianacebuaquina27@gmail.com', icon: require('@/firstsfc/public/email.png') },
-  { type: 'LinkedIn', value: 'https://www.linkedin.com/in/...', icon: require('@/firstsfc/public/profile-picture.jpg') }
-]);
+const hobbies = [
+  { title: 'Photography', description: 'Exploring and capturing each moment.' },
+  { title: 'Music', description: 'Discovering new artists and genres.' },
+  { title: 'Movies', description: 'I luv films that make me cry.' },
+  { title: 'Video Games', description: 'Sometimes.' },
+  { title: 'Doomscrolling', description: 'Or maybe watching dumb stuff on Youtube.' }
+];
 </script>
 
-<style scoped>
-/* Paste the contents of your css/styles.css here */
-/* "scoped" ensures these styles only apply to this component */
-
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 5%;
-  /* ... rest of your styles ... */
-}
+<style>
 </style>

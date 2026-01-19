@@ -1,0 +1,826 @@
+/* ============================================
+   CSS VARIABLES - Color Theme
+   ============================================ */
+:root {
+    /* Light Yellow Theme - Subtle and Neutral */
+    --yellow-primary: #fff9e6;
+    --yellow-secondary: #fef5d4;
+    --yellow-accent: #f5e6a8;
+    --yellow-hover: #f0d96b;
+    --yellow-dark: #d4b85a;
+    
+    /* Neutral tones derived from yellow */
+    --neutral-light: #faf8f3;
+    --neutral-medium: #f5f2e8;
+    --neutral-dark: #8b7d5a;
+    
+    /* Text colors */
+    --text-primary: #2c2416;
+    --text-secondary: #5a4f3a;
+    --text-light: #8b7d5a;
+    
+    /* Background colors */
+    --bg-primary: var(--yellow-primary);
+    --bg-secondary: var(--yellow-secondary);
+    --bg-card: #ffffff;
+    
+    /* Accent colors */
+    --accent-primary: var(--yellow-accent);
+    --accent-hover: var(--yellow-hover);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 10px rgba(212, 184, 90, 0.1);
+    --shadow-md: 0 5px 20px rgba(212, 184, 90, 0.15);
+    --shadow-lg: 0 10px 25px rgba(212, 184, 90, 0.2);
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-secondary) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Smooth scrolling for in-page anchors */
+html { scroll-behavior: smooth; }
+
+/* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    height: auto;
+    border-bottom: 1px solid #000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo a:hover {
+    color: var(--yellow-dark);
+}
+
+.logo .subtitle {
+    font-weight: normal;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-left: 0;
+    display: inline-block;
+    transform: translateY(2px);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--yellow-dark);
+}
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+.page-content {
+    margin-top: 100px;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    flex: 1;
+    min-height: calc(100vh - 250px);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    margin-top: 130px;
+    padding: 4rem 5%;
+    text-align: center;
+    color: var(--text-primary);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    max-width: 500px;
+    display: flex; /* allow the CTA to align to the right */
+    flex-direction: column;
+    gap: 0; /* fully remove flex gap so h1 sits immediately above the content */
+    align-items: flex-start;
+}
+
+/* Stronger enforcement for hero heading spacing in case other rules override it */
+.hero-content .hero-text > h1 {
+    margin-block-start: 0 !important;
+    margin-block-end: 0.06rem !important;
+}
+
+/* Align the Learn More CTA to the right in the hero */
+.hero-text .cta-button {
+    align-self: flex-end;
+    margin-top: 0.25rem;
+} 
+
+.hero-image {
+    flex: 0 0 auto;
+}
+
+.hero-image img {
+    margin-right: 0;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #000;
+    box-shadow: var(--shadow-md);
+    animation: fadeInUp 1s 0.3s backwards;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    margin-top: 0; /* remove extra top space */
+    margin-bottom: 0.125rem; /* tighter to the following text */
+    color: var(--text-primary);
+    animation: fadeInUp 1s;
+    text-align: left;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+} 
+
+.text-container {
+    background: #ffffff;
+    border: 1px solid #000;
+    padding: 1.5rem;
+    margin-bottom: 1rem; /* reduced spacing below intro text */
+    border-radius: 0;
+    animation: fadeInUp 1s 0.2s backwards;
+} 
+
+.hero p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    max-width: 100%;
+    margin: 0;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    text-align: left;
+    font-weight: 400;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--yellow-accent);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 1px solid #000;
+    animation: fadeInUp 1s 0.4s backwards;
+    text-align: center;
+    margin-left: 0; /* reset so it doesn't interfere inside cards */
+    width: fit-content;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+/* About section See More button - align to right */
+#about .cta-button {
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+}
+
+/* Small modifier: keeps colors & hover but reduces size */
+.cta-button.cta-small {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    animation-duration: 0.6s;
+}
+
+.view-more-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background: var(--yellow-accent);
+    color: var(--text-primary);
+    border: 1px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.view-more-btn:hover {
+    background: var(--yellow-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+section {
+    background: var(--bg-card);
+    margin: 2rem 5%;
+    padding: 3rem 5%;
+    border-radius: 0;
+    border: 1px solid #000;
+    box-shadow: var(--shadow-md);
+    margin-top: 1rem;
+    /* Offset anchors so content appears below the fixed header */
+    scroll-margin-top: 140px;
+}
+
+/* Remove the boxed container look just for the hobbies section */
+#hobbies {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 2rem 5% 0 5%;
+}
+
+/* Keep a bit of space between the heading and the grid */
+#hobbies .hobbies-grid {
+    margin-top: 1rem;
+}
+
+section p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    /* Thin black underline for section headings */
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   INTERESTS GRID
+   ============================================ */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.interest-card {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-secondary) 100%);
+    border-radius: 0;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid #000;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, var(--yellow-secondary) 0%, var(--yellow-accent) 100%);
+}
+
+.interest-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.interest-card p {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+/* ============================================
+   HOBBIES GRID
+   ============================================ */
+.hobbies-grid {
+    display: grid;
+    /* Force three columns on wide screens, fall back in media queries */
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    overflow: visible; /* allow hovered cards to overlap neighbors */
+    align-items: start;
+} 
+
+.hobby-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1.5rem 3.5rem 1.5rem; /* extra bottom padding for the absolute button */
+    background: var(--neutral-light);
+    border-radius: 0;
+    /* single thin black border on all sides */
+    border: 1px solid #000;
+    /* smooth, performant transitions focused on transform/box-shadow */
+    transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms cubic-bezier(.2,.9,.2,1), background-color 180ms ease;
+    transform: translateY(0) scale(1);
+    will-change: transform, box-shadow;
+    position: relative; /* create stacking context for z-index */
+    transform-origin: center;
+}
+
+/* Hover & keyboard focus expand - overlap neighbors (keep same background) */
+.hobby-item:hover,
+.hobby-item:focus-within {
+    /* keep the same neutral background as the non-hover state for a subtle effect */
+    background: var(--neutral-light);
+    transform: translateY(-10px) scale(1.12);
+    box-shadow: 0 12px 30px rgba(212,184,90,0.18);
+    z-index: 20;
+    cursor: pointer;
+}
+
+/* Slightly more subtle on small screens */
+@media (max-width: 768px) {
+    .hobby-item:hover,
+    .hobby-item:focus-within {
+        transform: translateY(-4px) scale(1.04);
+        z-index: 10;
+    }
+}
+
+/* See more uses the Learn More button style and is placed at the bottom-right */
+.see-more {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    text-decoration: none;
+    z-index: 30; /* above card content when overlapping */
+}
+
+/* Keep focus outline for accessibility */
+.see-more:focus {
+    outline: 2px solid var(--yellow-dark);
+    outline-offset: 2px;
+}
+
+/* Mobile: keep the button in-flow to avoid overlap issues */
+@media (max-width: 768px) {
+    .see-more {
+        position: static;
+        right: auto;
+        bottom: auto;
+        margin-top: auto;
+        align-self: flex-end;
+    }
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--neutral-light);
+    border: 1px solid #000;
+    border-radius: 0;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--neutral-light);
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.contact-icon img {
+    width: 57px;
+    height: 57px;
+    object-fit: contain;
+}
+
+.contact-item:hover .contact-icon {
+    background: var(--yellow-hover);
+    transform: scale(1.1);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+    border-top: 1px solid #000;
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--yellow-dark);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   GALLERY - Movies placeholders
+   ============================================ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 5%;
+}
+.gallery-item {
+    background: #fff;
+    border: 1px solid #000;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-item.empty {
+    background: linear-gradient(180deg,#f5f5f5,#e9e9e9);
+    color: var(--text-light);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+.gallery-item .placeholder-text {
+    position: absolute;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.artist-names {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 5%;
+    text-align: center;
+    justify-items: center;
+}
+
+.artist-names p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 0;
+    text-align: center;
+}
+
+.music-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.music-grid .gallery-item {
+    height: 250px;
+    aspect-ratio: 1/1;
+}
+
+.movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+}
+
+.movie-grid .gallery-item {
+    height: 300px;
+    aspect-ratio: 2/3;
+}
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    /* Center the hero CTA on small screens */
+    .hero-text .cta-button { align-self: center; }
+
+    .hero-image {
+        flex: 0 0 200px;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+        margin-right: 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .interests-grid,
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Slightly smaller offset for anchors on mobile */
+    section { scroll-margin-top: 100px; }
+}
+
+/* ============================================
+   ABOUT PAGE LAYOUT
+   ============================================ */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.about-section {
+    background: var(--neutral-light);
+    border: 1px solid #000;
+    padding: 2rem;
+}
+
+.about-section h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.education-item {
+    margin-bottom: 1.5rem;
+}
+
+.education-item h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.education-item p {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.expertise-column h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.expertise-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.expertise-column li {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.expertise-column li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--yellow-accent);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-item {
+    background: var(--neutral-light);
+    border: 1px solid #000;
+    padding: 2rem;
+}
+
+.project-item h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    margin-top: 20px;
+}
+
+.project-item p {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.project-placeholder {
+    background: linear-gradient(180deg, #f5f5f5, #e9e9e9);
+    border: 1px dashed #ccc;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
