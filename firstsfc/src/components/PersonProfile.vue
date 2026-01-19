@@ -18,7 +18,7 @@
     <div class="hero">
       <div class="hero-content">
         <div class="hero-image">
-          <img src="@/assets/images/profile-picture.jpg" alt="Gian Ace Buaquiña">
+          <img src="@/firstsfc/public/profile-picture.jpg" alt="Gian Ace Buaquiña">
         </div> 
         <div class="hero-text">
           <h1>Hello!</h1>
@@ -85,8 +85,8 @@ const hobbies = ref([
 ]);
 
 const contactInfo = ref([
-  { type: 'Email', value: 'gianacebuaquina27@gmail.com', icon: require('@/assets/images/socials/email.png') },
-  { type: 'LinkedIn', value: 'https://www.linkedin.com/in/...', icon: require('@/assets/images/socials/linkedin.jpg') }
+  { type: 'Email', value: 'gianacebuaquina27@gmail.com', icon: require('@/firstsfc/public/email.png') },
+  { type: 'LinkedIn', value: 'https://www.linkedin.com/in/...', icon: require('@/firstsfc/public/profile-picture.jpg') }
 ]);
 </script>
 
