@@ -83,7 +83,7 @@
 </template>
 
 <script setup>
-import './src/components/css/styles.css';
+import './css/styles.css';
 
 const hobbies = [
   { title: 'Photography', description: 'Exploring and capturing each moment.' },
