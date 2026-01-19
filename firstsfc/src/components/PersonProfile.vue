@@ -16,7 +16,7 @@
     <div class="hero">
       <div class="hero-content">
         <div class="hero-image">
-          <img src="@/firstsfc/public/images/profile-picture.jpg" alt="Gian Ace Buaquiña">
+          <img src="/images/profile-picture.jpg" alt="Gian Ace Buaquiña">
         </div> 
         <div class="hero-text">
           <h1>Hello!</h1>
@@ -56,7 +56,7 @@
         <div class="contact-info">
           <div class="contact-item">
             <div class="contact-icon">
-              <img src="@/firstsfc/public/images/email.png" alt="Email">
+              <img src="/images/email.png" alt="Email">
             </div>
             <div>
               <strong>Email</strong><br>
@@ -65,7 +65,7 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon">
-              <img src="@/firstsfc/public/images/linkedin.jpg" alt="LinkedIn">
+              <img src="/images/linkedin.jpg" alt="LinkedIn">
             </div>
             <div>
               <strong>LinkedIn</strong><br>
